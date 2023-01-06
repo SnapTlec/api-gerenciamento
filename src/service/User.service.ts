@@ -3,16 +3,16 @@ import { AppDataSource } from "../data-source";
 import Person from "../entities/Person";
 
 export const userServices = AppDataSource.getRepository(Person).extend({
-    isCreate(cpf : string){
-        var count : Promise <number> | any = this.count({
+    async isCreate(cpf : string){
+        var count : Promise <number> | any = await this.count({
             select : {
                 cpf : true
             },
             where : {
-                cpf : cpf
+                cpf
             }
         });
-
+        
         if(count > 0){
             return true;
         }

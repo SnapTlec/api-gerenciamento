@@ -1,9 +1,13 @@
 import { Router } from 'express';
+import { AccountController } from '../controllers/Account.controller';
 import { UserController } from '../controllers/User.controller';
-import validationMiddleware from '../middlewares/Person.middleware';
+import AccountValidationMiddleware from '../middlewares/Account.middleware';
+import PersonvalidationMiddleware from '../middlewares/Person.middleware';
 
 const routes = Router();
 
-routes.get('/api', validationMiddleware, new UserController().create);
+routes.post("/api/user", PersonvalidationMiddleware, new UserController().create);
+
+routes.post("/api/account", AccountValidationMiddleware, new AccountController().create);
 
 export default routes;
