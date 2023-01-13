@@ -1,8 +1,6 @@
 import express, { NextFunction, Request, Response } from "express";
 import personSchema from "../models/Person.model";
 
-
-//const router = express.Router();
  
 function personValidationMiddleware(request: Request, response: Response, next: NextFunction) {
   const { error } = personSchema.validate(request.body);
