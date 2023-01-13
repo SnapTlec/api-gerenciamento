@@ -1,0 +1,102 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "REST API",
+    "description": ""
+  },
+  "host": "localhost:3000",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/api/v1/user": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "obj",
+            "in": "body",
+            "description": "Cadastro de usuário no sistema.",
+            "required": true,
+            "format": "string",
+            "schema": {
+              "required": [
+                "cpf",
+                "firstName"
+              ],
+              "properties": {
+                "cpf": {
+                  "type": "string",
+                  "minLength": 11,
+                  "maxLength": 11,
+                  "example": "12345678910"
+                },
+                "firstName": {
+                  "type": "string",
+                  "minLength": 3,
+                  "maxLength": 250,
+                  "example": "Jhonny"
+                },
+                "lastName": {
+                  "type": "string",
+                  "minLength": 3,
+                  "maxLength": 250,
+                  "example": "White"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/v1/account": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "userCpf": {
+                  "example": "any"
+                },
+                "email": {
+                  "example": "any"
+                },
+                "accountPassword": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    }
+  }
+}

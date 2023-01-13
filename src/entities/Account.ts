@@ -1,4 +1,4 @@
-import { Column, Entity, JoinColumn, OneToOne, PrimaryColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, JoinColumn, OneToOne, PrimaryColumn, UpdateDateColumn } from "typeorm";
 import Person from "./Person";
 
 @Entity('ACCOUNT')
@@ -17,9 +17,9 @@ export class Account{
     @Column({type : "text"})
     accountPassword : string
 
-    @Column({type : "datetime"})
+    @CreateDateColumn({type : "datetime"})
     createdAt : String
 
-    @Column({type : "datetime"})
+    @UpdateDateColumn({type : "datetime"})
     modifiedAt : string
 }

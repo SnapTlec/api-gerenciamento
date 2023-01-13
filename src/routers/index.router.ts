@@ -6,8 +6,8 @@ import PersonvalidationMiddleware from '../middlewares/Person.middleware';
 
 const routes = Router();
 
-routes.post("/api/user", PersonvalidationMiddleware, new UserController().create);
+routes.post("/api/v1/user", PersonvalidationMiddleware, new UserController().create);
 
-routes.post("/api/account", AccountValidationMiddleware, new AccountController().create);
+routes.post("/api/v1/account", AccountValidationMiddleware, new AccountController().create);
 
 export default routes;
